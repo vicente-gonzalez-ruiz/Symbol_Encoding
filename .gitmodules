@@ -10,6 +10,3 @@
 [submodule "Probabilistic_Models"]
 	path = Probabilistic_Models
 	url = git@github.com:vicente-gonzalez-ruiz/Probabilistic_Models.git
-[submodule "Geometric_Distribution_Coding"]
-	path = Geometric_Distribution_Coding
-	url = git@github.com:vicente-gonzalez-ruiz/Geometric_Distribution_Coding.git
