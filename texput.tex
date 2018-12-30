@@ -1,0 +1,141 @@
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "<none>"
+%%% End:
+
+\title{Symbol encoding}
+
+\author{Vicente González Ruiz}
+
+\maketitle
+
+\section{How it works?}
+\begin{itemize}
+\item
+  We can compress a sequence of symbols if each one is translated by a
+  code-word and, in average, the lengths of the code-words are smaller
+  than the length of the symbols.
+\item
+  The encoder and the decoder have a probabilistic model \(M\) which
+  provides to a variable-length encoder (\(C\))/decoder(\(C^{-1}\)) the
+  probability \(p(s)\) of each symbol \(s\).
+\item
+  The most probable symbols are represented by the shorter code-words
+  and viceversa.
+\end{itemize}
+
+\img{600}{graphics/compresion_entropica.png}
+
+\section{Bits, data and information}
+\begin{itemize}
+\item
+  data != information (data is the representation of the information).
+\item
+  Lossless data compression uses a shorter representation for
+  information.
+\item
+  By definition, a bit of data stores a bit of information, if and only
+  if, it represents the occurrence of an equiprobable event (an event
+  that can be true or false with the same probability). In this ideal
+  situation, the representation is fully efficient (no futher
+  compression would be possible).
+\item
+  By definition, a symbol \(s\) with probability \(p(s)\) stores
+  \begin{equation}
+    I(s)=-\log_2 p(s) \label{Eq:symbol_information} \tag{Eq:symbol\_information}
+  \end{equation}
+  bits of information.
+\item
+  So, ideally, the length of a code-word in bits (of data) should match
+  with the number bits of information.
+\end{itemize}
+
+\img{600}{graphics/prob_vs_long.png}
+
+\section{Entropy}
+\begin{itemize}
+\item
+  The entropy \(H(S)\) measures the amount of information per symbol
+  that a source of information \(S\) produces, in average. By definition
+
+  \begin{equation}
+    H(S) = \frac{1}{N}\sum_{s=1}^{N} p(s)\times I(s)
+  \end{equation}
+
+  bits-of-information/symbol, where \(N\) is the size of the source
+  alphabet (number of different symbols).
+\end{itemize}
+
+\section{Compression basics}
+
+\subsection{Encoding of a symbol}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  While the decoder does not know the symbol:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Assert something about the symbol that allows to the decoder to
+    minimize the uncertainty of finding that symbol. This guess should
+    have true or false with the same probability.
+  \item
+    Output a bit of code that says if the last guess is true or false.
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Decoding of a symbol}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  While the symbol is not known without uncertainty:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Make the same guess that the encoder.
+  \item
+    Input a bit of code that represents the result of the last guess.
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Tip}
+\begin{itemize}
+\tightlist
+\item
+  This codec is 100\% efficient if the guesses are equiprobable.
+\end{itemize}
+\subsection{Example}
+\begin{itemize}
+\item
+  Let's suppose that we use the Spanish alphabet. Humans know that
+  symbols does not form words in any order, so we can formulate the
+  following VLC (Variable Length Codec):
+
+  In Spanish there are 28 letters. Therefore, to encode, for example,
+  the word \texttt{preciosa}, the first symbol \texttt{p} can be
+  represented by its index inside of the Spahish alphabet with a
+  code-word of 5 bits. In this try, the encoding is not a very
+  efficient, but this we are in first letter \ldots{} For the second one
+  \texttt{r} we can see (using a Spanish dictionary) that after a
+  \texttt{p}, the following symbols are possible: (1) \texttt{a}, (2)
+  \texttt{e}, (3) \texttt{i}, (4) \texttt{l}, (5) \texttt{n}, (6)
+  \texttt{o}, (7) \texttt{r}, (8) \texttt{s} and (9) \texttt{u}.
+  Therefore, we don't need 5 bits now, 4 are enough.
+\end{itemize}
+
+\img{400}{graphics/universal_coding_example.png}
+
+\begin{itemize}
+\tightlist
+\item
+  Notice that the compression ratio has been 40/25:1 (\texttt{preciosa}
+  has 8 letters).
+\end{itemize}
+
+\bibliography{text-compression}
