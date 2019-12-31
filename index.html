@@ -26,35 +26,70 @@ class="ecrm-1200">Vicente Gonz</span><span
 class="ecrm-1200">á</span><span 
 class="ecrm-1200">lez Ruiz</span></div><br />
 <div class="date" ><span 
-class="ecrm-1200">December 31, 2018</span></div>
+class="ecrm-1200">December 31, 2019</span></div>
    </div>
+   <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
    <div class="tableofcontents">
    <span class="sectionToc" >1 <a 
-href="#x1-10001" id="QQ2-1-1">How it works?</a></span>
+href="#x1-20001" id="QQ2-1-2">How it works?</a></span>
 <br />   <span class="sectionToc" >2 <a 
-href="#x1-20002" id="QQ2-1-2">Bits, data and information</a></span>
+href="#x1-30002" id="QQ2-1-3">Bits, data and information</a></span>
 <br />   <span class="sectionToc" >3 <a 
-href="#x1-30003" id="QQ2-1-3">Entropy</a></span>
+href="#x1-40003" id="QQ2-1-4">Entropy</a></span>
 <br />   <span class="sectionToc" >4 <a 
-href="#x1-40004" id="QQ2-1-4">Compression basics</a></span>
+href="#x1-50004" id="QQ2-1-5">Compression basics</a></span>
+<br />    <span class="subsectionToc" >4.1 <a 
+href="#x1-60004.1" id="QQ2-1-6">Encoding of a symbol</a></span>
+<br />    <span class="subsectionToc" >4.2 <a 
+href="#x1-70004.2" id="QQ2-1-7">Decoding of a symbol</a></span>
+<br />     <span class="subsubsectionToc" >4.2.1 <a 
+href="#x1-80004.2.1" id="QQ2-1-8">Tip</a></span>
+<br />    <span class="subsectionToc" >4.3 <a 
+href="#x1-90004.3" id="QQ2-1-9">Example</a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="#x1-100005" id="QQ2-1-10">Probabilistic models</a></span>
+<br />   <span class="sectionToc" >6 <a 
+href="#x1-110006" id="QQ2-1-11">Shannon-Fano coding</a></span>
+<br />   <span class="sectionToc" >7 <a 
+href="#x1-120007" id="QQ2-1-12">Huﬀman coding</a></span>
+<br />   <span class="sectionToc" >8 <a 
+href="#x1-130008" id="QQ2-1-13">Arithmetic coding</a></span>
+<br />   <span class="sectionToc" >9 <a 
+href="#x1-140009" id="QQ2-1-14">Move-to-front transform</a></span>
+<br />   <span class="sectionToc" >10 <a 
+href="#x1-1500010" id="QQ2-1-15">Context-base text predictive transform</a></span>
+<br />   <span class="sectionToc" >11 <a 
+href="#x1-1600011" id="QQ2-1-16">Unary coding</a></span>
+<br />   <span class="sectionToc" >12 <a 
+href="#x1-1700012" id="QQ2-1-17">Golomb-Rice coding</a></span>
+<br />   <span class="sectionToc" >13 <a 
+href="#x1-1800013" id="QQ2-1-18">gzip</a></span>
+<br />   <span class="sectionToc" ><a 
+href="#Q1-1-20">References</a></span>
    </div>
+                                                                  
+
+                                                                  
+<!--l. 6--><p class="noindent" >
+</p>
    <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
- id="x1-10001"></a>How it works?</h3>
+ id="x1-20001"></a>How it works?</h3>
      <ul class="itemize1">
      <li class="itemize">We can compress a sequence of symbols if each one is translated by a
      code-word and, in average, the lengths of the code-words are smaller than
      the length of the symbols.
      </li>
-     <li class="itemize">The encoder and the decoder have a probabilistic model <!--l. 19--><math 
+     <li class="itemize">The encoder and the decoder have a probabilistic model <!--l. 13--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mrow 
 ><mi 
 >M</mi></mrow></math>
-     which provides to a variable-length encoder (<!--l. 20--><math 
+     which provides to a variable-length encoder (<!--l. 14--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mrow 
 ><mi 
->C</mi></mrow></math>)/decoder(<!--l. 20--><math 
+>C</mi></mrow></math>)/decoder(<!--l. 14--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mrow 
 ><msup><mrow 
@@ -63,7 +98,7 @@ display="inline" ><mrow
 ><mo 
 class="MathClass-bin">−</mo><mn>1</mn></mrow></msup 
 ></mrow></math>)
-     the probability <!--l. 21--><math 
+     the probability <!--l. 15--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mrow 
 ><mi 
@@ -71,7 +106,7 @@ display="inline" ><mrow
 class="MathClass-open">(</mo><mrow><mi 
 >s</mi></mrow><mo 
 class="MathClass-close">)</mo></mrow></mrow></math>
-     of each symbol <!--l. 21--><math 
+     of each symbol <!--l. 15--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mrow 
 ><mi 
@@ -79,14 +114,11 @@ display="inline" ><mrow
      </li>
      <li class="itemize">The most probable symbols are represented by the shorter code-words and
      viceversa.</li></ul>
-<!--l. 27--><p class="noindent" > <div style="text-align:center;"> <img width=600 src="graphics/compresion_entropica.png" /> </div> 
-                                                                  
-
-                                                                  
-</p><!--l. 29--><p class="noindent" >
+<!--l. 21--><p class="noindent" ><div style="text-align:center;"> <img width=600 src="graphics/compresion_entropica.svg" /> </div> 
+</p><!--l. 23--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
- id="x1-20002"></a>Bits, data and information</h3>
+ id="x1-30002"></a>Bits, data and information</h3>
      <ul class="itemize1">
      <li class="itemize">data != information (data is the representation of the information).
      </li>
@@ -97,12 +129,12 @@ display="inline" ><mrow
      be true or false with the same probability). In this ideal situation, the
      representation is fully eﬃcient (no futher compression would be possible).
      </li>
-     <li class="itemize">By deﬁnition, a symbol <!--l. 43--><math 
+     <li class="itemize">By deﬁnition, a symbol <!--l. 37--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mrow 
 ><mi 
 >s</mi></mrow></math>
-     with probability <!--l. 43--><math 
+     with probability <!--l. 37--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mrow 
 ><mi 
@@ -111,8 +143,11 @@ class="MathClass-open">(</mo><mrow><mi
 >s</mi></mrow><mo 
 class="MathClass-close">)</mo></mrow></mrow></math>
      stores <table class="equation"><tr><td> <a 
- id="x1-2001r1"></a>
-     <!--l. 44--><math 
+ id="x1-3001r1"></a>
+                                                                  
+
+                                                                  
+     <!--l. 38--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="block" class="equation">
                                         <mi 
@@ -130,23 +165,20 @@ class="MathClass-open">(</mo><mrow><mi
 >s</mi></mrow><mo 
 class="MathClass-close">)</mo></mrow>
                                                                                                        <mstyle 
-   id="x1-2002r0"  class="label" ></mstyle><!--endlabel-->
+   id="x1-3002r0"  class="label" ></mstyle><!--endlabel-->
 </math></td><td class="eq-no">(Eq:symbol_information)<a 
- id="x1-2003r0"></a></td></tr></table>
-     <!--l. 47--><p class="noindent" >bits of information.
+ id="x1-3003r0"></a></td></tr></table>
+     <!--l. 41--><p class="noindent" >bits of information.
      </p></li>
      <li class="itemize">So, ideally, the length of a code-word in bits (of data) should match with the
      number bits of information.</li></ul>
-<!--l. 53--><p class="noindent" > <div style="text-align:center;"> <img width=600 src="graphics/prob_vs_long.png" /> </div> 
-</p><!--l. 55--><p class="noindent" >
+<!--l. 47--><p class="noindent" ><div style="text-align:center;"> <img width=600 src="graphics/prob_vs_long.svg" /> </div> 
+</p><!--l. 49--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
- id="x1-30003"></a>Entropy</h3>
-                                                                  
-
-                                                                  
+ id="x1-40003"></a>Entropy</h3>
      <ul class="itemize1">
-     <li class="itemize">The entropy <!--l. 58--><math 
+     <li class="itemize">The entropy <!--l. 52--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mrow 
 ><mi 
@@ -155,15 +187,15 @@ class="MathClass-open">(</mo><mrow><mi
 >S</mi></mrow><mo 
 class="MathClass-close">)</mo></mrow></mrow></math>
      measures the amount of information per symbol that a source of information
-     <!--l. 59--><math 
+     <!--l. 53--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mrow 
 ><mi 
 >S</mi></mrow></math>
      produces, in average. By deﬁnition
      <table class="equation"><tr><td> <a 
- id="x1-3001r1"></a>
-     <!--l. 61--><math 
+ id="x1-4001r1"></a>
+     <!--l. 55--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="block" class="equation">
                                <mi 
@@ -195,69 +227,72 @@ class="MathClass-open">(</mo><mrow><mi
 >s</mi></mrow><mo 
 class="MathClass-close">)</mo></mrow>
 </math></td><td class="eq-no">(1)</td></tr></table>
-     <!--l. 65--><p class="noindent" >bits-of-information/symbol, where
-     <!--l. 65--><math 
+     <!--l. 59--><p class="noindent" >bits-of-information/symbol, where
+     <!--l. 59--><math 
  xmlns="http://www.w3.org/1998/Math/MathML"  
 display="inline" ><mrow 
 ><mi 
 >N</mi></mrow></math>
      is the size of the source alphabet (number of diﬀerent symbols).</p></li></ul>
-<!--l. 69--><p class="noindent" >
+                                                                  
+
+                                                                  
+<!--l. 63--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
- id="x1-40004"></a>Compression basics</h3>
-<!--l. 71--><p class="noindent" >
+ id="x1-50004"></a>Compression basics</h3>
+<!--l. 65--><p class="noindent" >
 </p>
    <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
- id="x1-50004.1"></a>Encoding of a symbol</h4>
-<!--l. 72--><p class="noindent" >
+ id="x1-60004.1"></a>Encoding of a symbol</h4>
+<!--l. 66--><p class="noindent" >
      </p><ol  class="enumerate1" >
      <li 
-  class="enumerate" id="x1-5002x1">While the decoder does not know the symbol:
-     <!--l. 78--><p class="noindent" >
+  class="enumerate" id="x1-6002x1">While the decoder does not know the symbol:
+     <!--l. 72--><p class="noindent" >
          </p><ol  class="enumerate2" >
          <li 
-  class="enumerate" id="x1-5004x1">Assert something about the symbol that allows to the decoder to
+  class="enumerate" id="x1-6004x1">Assert something about the symbol that allows to the decoder to
          minimize the uncertainty of ﬁnding that symbol. This guess should
          have true or false with the same probability.
          </li>
          <li 
-  class="enumerate" id="x1-5006x2">Output a bit of code that says if the last guess is true or false.</li></ol>
+  class="enumerate" id="x1-6006x2">Output a bit of code that says if the last guess is true or false.</li></ol>
      </li></ol>
+<!--l. 84--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x1-70004.2"></a>Decoding of a symbol</h4>
+<!--l. 85--><p class="noindent" >
+     </p><ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x1-7002x1">While the symbol is not known without uncertainty:
+     <!--l. 91--><p class="noindent" >
+         </p><ol  class="enumerate2" >
+         <li 
+  class="enumerate" id="x1-7004x1">Make the same guess that the encoder.
+         </li>
+         <li 
+  class="enumerate" id="x1-7006x2">Input a bit of code that represents the result of the last guess.</li></ol>
+     </li></ol>
+<!--l. 101--><p class="noindent" >
+</p>
+   <h5 class="subsubsectionHead"><span class="titlemark">4.2.1   </span> <a 
+ id="x1-80004.2.1"></a>Tip</h5>
+     <ul class="itemize1">
+     <li class="itemize">This codec is 100% eﬃcient if the guesses are equiprobable.</li></ul>
                                                                   
 
                                                                   
-<!--l. 90--><p class="noindent" >
-</p>
-   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
- id="x1-60004.2"></a>Decoding of a symbol</h4>
-<!--l. 91--><p class="noindent" >
-     </p><ol  class="enumerate1" >
-     <li 
-  class="enumerate" id="x1-6002x1">While the symbol is not known without uncertainty:
-     <!--l. 97--><p class="noindent" >
-         </p><ol  class="enumerate2" >
-         <li 
-  class="enumerate" id="x1-6004x1">Make the same guess that the encoder.
-         </li>
-         <li 
-  class="enumerate" id="x1-6006x2">Input a bit of code that represents the result of the last guess.</li></ol>
-     </li></ol>
 <!--l. 107--><p class="noindent" >
 </p>
-   <h5 class="subsubsectionHead"><span class="titlemark">4.2.1   </span> <a 
- id="x1-70004.2.1"></a>Tip</h5>
-     <ul class="itemize1">
-     <li class="itemize">This codec is 100% eﬃcient if the guesses are equiprobable.</li></ul>
-<!--l. 113--><p class="noindent" >
-</p>
    <h4 class="subsectionHead"><span class="titlemark">4.3   </span> <a 
- id="x1-80004.3"></a>Example</h4>
+ id="x1-90004.3"></a>Example</h4>
      <ul class="itemize1">
      <li class="itemize">Let’s  suppose  that  we  use  the  Spanish  alphabet.  Humans  know  that
      symbols  does  not  form  words  in  any  order,  so  we  can  formulate  the
      following VLC (Variable Length Codec):
-     <!--l. 120--><p class="noindent" >In Spanish there are 28 letters. Therefore, to encode, for example, the word
+     <!--l. 114--><p class="noindent" >In Spanish there are 28 letters. Therefore, to encode, for example, the word
      <span 
 class="ectt-1000">preciosa</span>, the ﬁrst symbol <span 
 class="ectt-1000">p </span>can be represented by its index inside of the
@@ -277,15 +312,157 @@ class="ectt-1000">r</span>, (8) <span
 class="ectt-1000">s </span>and (9) <span 
 class="ectt-1000">u</span>.
      Therefore, we don’t need 5 bits now, 4 are enough.</p></li></ul>
-<!--l. 132--><p class="noindent" > <div style="text-align:center;"> <img width=400 src="graphics/universal_coding_example.png" /> </div> 
+<!--l. 126--><p class="noindent" ><div style="text-align:center;"> <img width=400 src="graphics/universal_coding_example.svg" /> </div> 
 </p>
-                                                                  
-
-                                                                  
      <ul class="itemize1">
      <li class="itemize">Notice  that  the  compression  ratio  has  been  40/25:1  (<span 
 class="ectt-1000">preciosa </span>has  8
      letters).</li></ul>
+<!--l. 135--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-100005"></a><a 
+href="https://vicente-gonzalez-ruiz.github.io/probabilistic_models/" >Probabilistic models</a></h3>
+<!--l. 136--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x1-110006"></a><a 
+href="https://vicente-gonzalez-ruiz.github.io/Shannon-Fano_coding/" >Shannon-Fano coding</a></h3>
+<!--l. 137--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">7   </span> <a 
+ id="x1-120007"></a><a 
+href="https://vicente-gonzalez-ruiz.github.io/Huffman_coding/" >Huﬀman coding</a></h3>
+                                                                  
+
+                                                                  
+<!--l. 138--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">8   </span> <a 
+ id="x1-130008"></a><a 
+href="https://vicente-gonzalez-ruiz.github.io/arithmetic_coding/" >Arithmetic coding</a></h3>
+<!--l. 139--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">9   </span> <a 
+ id="x1-140009"></a><a 
+href="https://vicente-gonzalez-ruiz.github.io/move-to-front_transform/" >Move-to-front transform</a></h3>
+<!--l. 140--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">10   </span> <a 
+ id="x1-1500010"></a><a 
+href="https://vicente-gonzalez-ruiz.github.io/context-based_text_predictive_transform/" >Context-base text predictive transform</a></h3>
+<!--l. 141--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">11   </span> <a 
+ id="x1-1600011"></a><a 
+href="https://vicente-gonzalez-ruiz.github.io/unary_coding/" >Unary coding</a></h3>
+<!--l. 142--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">12   </span> <a 
+ id="x1-1700012"></a><a 
+href="https://vicente-gonzalez-ruiz.github.io/Golomb-Rice_coding/" >Golomb-Rice coding</a></h3>
+<!--l. 143--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">13   </span> <a 
+ id="x1-1800013"></a><a 
+href="https://vicente-gonzalez-ruiz.github.io/gzip/" >gzip</a></h3>
+<!--l. 1--><p class="noindent" >
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-1900013"></a>References</h3>
+<!--l. 1--><p class="noindent" >
+    </p><div class="thebibliography">
+    <p class="bibitem" ><span class="biblabel">
+  [1]<span class="bibsp">   </span></span><a 
+ id="Xcleary1984data"></a>John Cleary and Ian Witten. <a 
+href="https://scholar.google.es/scholar?hl=es&as_sdt=0%2C5&q=Data+Compression+using+Adaptive+Coding+and+Partial+String+Matching&btnG=" >Data compression using adaptive coding
+    and  partial  string  matching</a>.    <span 
+class="ecti-1000">IEEE  transactions  on  Communications</span>,
+    32(4):396–402, 1984.
+                                                                  
+
+                                                                  
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+  [2]<span class="bibsp">   </span></span><a 
+ id="Xdeutsch1996deflate"></a>Peter Deutsch. <a 
+href="https://www.rfc-editor.org/info/rfc1951" >DEFLATE compressed data format speciﬁcation version
+    1.3</a>. Technical report, 1996.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+  [3]<span class="bibsp">   </span></span><a 
+ id="Xdeutsch1996gzip"></a>Peter Deutsch.  <a 
+href="https://www.rfc-editor.org/info/rfc1952" >GZIP ﬁle format speciﬁcation version 4.3</a>.  Technical
+    report, 1996.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+  [4]<span class="bibsp">   </span></span><a 
+ id="Xfano1949transmission"></a>Robert M.  Fano.   <a 
+href="https://scholar.google.es/scholar?hl=es&as_sdt=0%2C5&q=Fano+1949+%22The+transmission+of+information%22&btnG=" ><span 
+class="ecti-1000">The transmission of information</span></a>.   Massachusetts
+    Institute of Technology, Research Laboratory of Electronics, 1949.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+  [5]<span class="bibsp">   </span></span><a 
+ id="Xgolomb1966run"></a>Solomon Golomb. <a 
+href="https://scholar.google.es/scholar?hl=es&as_sdt=0%2C5&q=golomb+1966+run&btnG=" >Run-length encodings (Corresp.)</a>. <span 
+class="ecti-1000">IEEE transactions</span>
+    <span 
+class="ecti-1000">on information theory</span>, 12(3):399–401, 1966.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+  [6]<span class="bibsp">   </span></span><a 
+ id="Xhuffman1952method"></a>David A                                                                     Huﬀman.
+    <a 
+href="https://scholar.google.es/scholar?hl=es&as_sdt=0%2C5&q=huffman+method+codes+1952&btnG=" >A method for the construction of minimum-redundancy codes</a>. <span 
+class="ecti-1000">Proceedings</span>
+    <span 
+class="ecti-1000">of the Institute of Radio Engineers (IRE)</span>, 40(9):1098–1101, 1952.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+  [7]<span class="bibsp">   </span></span><a 
+ id="Xmanzini2001analysis"></a>Giovanni Manzini.  <a 
+href="https://scholar.google.es/scholar?hl=es&as_sdt=0%2C5&q=An+analysis+of+the+Burrows+Wheeler+transform+move+to+front&btnG=" >An analysis of the Burrows—Wheeler transform</a>.
+    <span 
+class="ecti-1000">Journal of the ACM (JACM)</span>, 48(3):407–430, 2001.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+  [8]<span class="bibsp">   </span></span><a 
+ id="Xrice1971adaptive"></a>Robert Rice and James Plaunt.  <a 
+href="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=rice+plaunt+variable+length+coding&btnG=" >Adaptive variable-length coding for
+    eﬃcient compression of spacecraft television data</a>.  <span 
+class="ecti-1000">IEEE Transactions on</span>
+    <span 
+class="ecti-1000">Communication Technology</span>, 19(6):889–897, 1971.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+  [9]<span class="bibsp">   </span></span><a 
+ id="Xrissanen1979arithmetic"></a>Jorma  Rissanen  and  Glen G.  Langdon.   <a 
+href="https://scholar.google.es/scholar?hl=es&as_sdt=0%2C5&q=+Rissanen+Langdon+Arithmetic+Coding+1979&btnG=" >Arithmetic  coding</a>.   <span 
+class="ecti-1000">IBM</span>
+    <span 
+class="ecti-1000">Journal of research and development</span>, 23(2):149–162, 1979.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ [10]<span class="bibsp">   </span></span><a 
+ id="Xshannon1948mathematical"></a>Claude Elwood Shannon.  <a 
+href="https://scholar.google.es/scholar?hl=es&as_sdt=0%2C5&q=Shannon+A+Mathematical+Theory+of+Communication&btnG=" >A mathematical theory of communication</a>.
+    <span 
+class="ecti-1000">Bell system technical journal</span>, 27(3):379–423, 1948.
+                                                                  
+
+                                                                  
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ [11]<span class="bibsp">   </span></span><a 
+ id="Xwitten1987arithmetic"></a>Ian H Witten, Radford M Neal, and John G Cleary. <a 
+href="https://scholar.google.es/scholar?hl=es&as_sdt=0%2C5&q=Witten+Neal+Cleary+Arithmetic+Coding+for+Data+Compression&btnG=" >Arithmetic coding
+    for data compression</a>. <span 
+class="ecti-1000">Communications of the ACM</span>, 30(6):520–540, 1987.
+</p>
+    </div>
+<a 
+ id="Q1-1-20"></a>
     
 </body> 
 </html>
