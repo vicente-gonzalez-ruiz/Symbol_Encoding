@@ -1,13 +1,7 @@
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "<none>"
-%%% End:
-
 \title{Symbol encoding}
-
 \author{Vicente González Ruiz}
-
 \maketitle
+\tableofcontents
 
 \section{How it works?}
 \begin{itemize}
@@ -24,7 +18,7 @@
   and viceversa.
 \end{itemize}
 
-\img{600}{graphics/compresion_entropica.png}
+\myfig{graphics/compresion_entropica}{6cm}{600}
 
 \section{Bits, data and information}
 \begin{itemize}
@@ -50,7 +44,7 @@
   with the number bits of information.
 \end{itemize}
 
-\img{600}{graphics/prob_vs_long.png}
+\myfig{graphics/prob_vs_long}{6cm}{600}
 
 \section{Entropy}
 \begin{itemize}
@@ -129,7 +123,7 @@
   Therefore, we don't need 5 bits now, 4 are enough.
 \end{itemize}
 
-\img{400}{graphics/universal_coding_example.png}
+\myfig{graphics/universal_coding_example}{4cm}{400}
 
 \begin{itemize}
 \tightlist
@@ -137,5 +131,15 @@
   Notice that the compression ratio has been 40/25:1 (\texttt{preciosa}
   has 8 letters).
 \end{itemize}
+
+\section{\mylink{probabilistic_models}{Probabilistic models}}
+\section{\mylink{Shannon-Fano_coding}{Shannon-Fano Coding}}
+\section{\mylink{Huffman_coding}{Huffman Coding}}
+\section{\mylink{arithmetic_coding}{Arithmetic Coding}}
+\section{\mylink{move-to-front_transform}{Move-to-front transform}}
+\section{\mylink{context-based_text_predictive_transform}{Context-base text predictive transform}}
+\section{\mylink{unary_coding}{Unary coding}}
+\section{\mylink{Golomb-Rice_coding}{Golomb-Rice coding}
+\section{\mylink{gzip}{gzip}}
 
 \bibliography{text-compression}
